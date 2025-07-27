@@ -62,9 +62,10 @@ function formatTime(date) {
 updateCurrentUrl();
 clearLogs();
 
+const tabId = chrome.devtools.inspectedWindow.tabId;
 port.postMessage({
   type: "init",
-  tabId: chrome.devtools.inspectedWindow.tabId
+  tabId,
 });
 
 port.onMessage.addListener((message) => {
