@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "@ Console Filter",
+  "version": "1.0",
+  "description": "Shows only logs starting with @ in DevTools",
+  "devtools_page": "devtools.html",
+  "permissions": [
+    "storage",
+    "scripting",
+    "debugger",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}

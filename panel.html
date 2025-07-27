@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root {
+      --bg-color: #202124;
+      --text-color: #e8eaed;
+      --log-bg: #292a2d;
+      --log-border: #3c4043;
+      --log-time: #9aa0a6;
+      --log-info: #5f97ec;
+      --log-warn: #f29900;
+      --log-error: #f44336;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    #header {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--log-border);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+
+    #logs {
+      padding: 8px 0;
+    }
+
+    .log-entry {
+      padding: 4px 12px;
+      margin: 1px 0;
+      position: relative;
+      display: flex;
+      word-break: break-word;
+    }
+
+    .log-entry:hover {
+      background-color: var(--log-bg);
+    }
+
+    .log-time {
+      color: var(--log-time);
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .log-content {
+      flex-grow: 1;
+    }
+
+    .log-method {
+      display: inline-block;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+
+    .log-method.log { color: var(--log-info); }
+    .log-method.warn { color: var(--log-warn); }
+    .log-method.error { color: var(--log-error); }
+
+    .log-message {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+    </svg>
+    Filtered logs (@)
+  </div>
+  <div id="logs"></div>
+  <script src="panel.js"></script>
+</body>
+</html>
